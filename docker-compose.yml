@@ -40,3 +40,8 @@ services:
     volumes:
       - /app/node_modules
       - ./worker:/app
+
+
+# postgress
+# postgres_password
+# fibvalues
