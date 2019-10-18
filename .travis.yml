@@ -20,6 +20,7 @@ after_success:
   - docker push brianpolanco/multi-nginx
   - docker push brianpolanco/multi-server
   - docker push brianpolanco/multi-worker
+<<<<<<< HEAD
 
 deploy:
   provider: elasticbeanstalk
@@ -33,3 +34,5 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
     secure: $AWS_SECRET_KEY
+=======
+>>>>>>> bdfdacec9a373f1a5c114dcc171cd55efbdad905
