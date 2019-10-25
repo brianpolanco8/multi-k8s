@@ -12,11 +12,7 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-<<<<<<< HEAD
             <h1 className="App-title">Welcome to React Version 2</h1>
-=======
-            <h1 className="App-title">Fib calculator</h1>
->>>>>>> d77b4fe341fb3d4d55e43350d82f2c80b895ebe6
             <Link to="/">Home</Link>
             <Link to="/otherpage">Other Page</Link>
           </header>
