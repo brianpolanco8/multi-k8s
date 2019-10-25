@@ -16,6 +16,7 @@
 # script:
 #   - docker run -e CI=true brianpolanco/react-test npm run test
 
+<<<<<<< HEAD
 # deploy:
 #   provider: script
 #   script: bash ./deploy.sh
@@ -26,3 +27,33 @@
 #gem install travis
 #travis login
 #travis encrypt-file service-account.json
+=======
+script:
+  - docker run -e CI=true brianpolanco/react-test npm run test
+
+after_success:
+  - docker build -t brianpolanco/multi-client ./client
+  - docker build -t brianpolanco/multi-nginx ./nginx
+  - docker build -t brianpolanco/multi-server ./server
+  - docker build -t brianpolanco/multi-worker ./worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push brianpolanco/multi-client
+  - docker push brianpolanco/multi-nginx
+  - docker push brianpolanco/multi-server
+  - docker push brianpolanco/multi-worker
+  
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker-eb
+  env: MultiDockerEb-env
+  bucket_name: elasticbeanstalk-us-east-2-844444897987
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
+>>>>>>> d77b4fe341fb3d4d55e43350d82f2c80b895ebe6
