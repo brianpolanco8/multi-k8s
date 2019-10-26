@@ -12,7 +12,7 @@ spec:
     - hosts:
         - brianpolanco.com
         - www.brianpolanco.com
-      secretName: brian-polanco-com
+      secretName: brianpolanco-com
   rules:
     - host: brianpolanco.com
       http:
